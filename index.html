@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kimu Business</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Hero -->
+  <section class="hero funky-bg">
+    <h1>🚀 Welcome to Kimu Business 🚀</h1>
+    <p>Minimalist. Funky. Modern. Let’s build something cool.</p>
+    <div class="buttons">
+      <button onclick="openLogin()">Login</button>
+      <button onclick="openRegister()">Register</button>
+      <a href="mailto:gdam385@gmail.com"><button>Contact</button></a>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing">
+    <div class="card">
+      <h2>Simple Website</h2>
+      <p>Basic HTML static site with minimal design.</p>
+      <span>₹50</span>
+      <form action="https://www.paypal.com/ncp/payment/KIMUU" method="post" target="_blank">
+        <input type="hidden" name="business" value="gdam385@gmail.com">
+        <input type="hidden" name="item_name" value="Simple Website">
+        <input type="hidden" name="amount" value="50">
+        <input type="hidden" name="currency_code" value="INR">
+        <button type="submit" class="pay-btn">Pay with PayPal</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Pro Website</h2>
+      <p>Professional responsive site with animations & extras.</p>
+      <span>₹1,000</span>
+      <form action="https://www.paypal.com/ncp/payment/KIMUU" method="post" target="_blank">
+        <input type="hidden" name="business" value="gdam385@gmail.com">
+        <input type="hidden" name="item_name" value="Pro Website">
+        <input type="hidden" name="amount" value="1000">
+        <input type="hidden" name="currency_code" value="INR">
+        <button type="submit" class="pay-btn">Pay with PayPal</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Game Website</h2>
+      <p>Interactive game-based website with custom logic.</p>
+      <span>₹2,000</span>
+      <form action="https://www.paypal.com/ncp/payment/KIMUU" method="post" target="_blank">
+        <input type="hidden" name="business" value="gdam385@gmail.com">
+        <input type="hidden" name="item_name" value="Game Website">
+        <input type="hidden" name="amount" value="2000">
+        <input type="hidden" name="currency_code" value="INR">
+        <button type="submit" class="pay-btn">Pay with PayPal</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <h2>Login</h2>
+      <input type="email" placeholder="Email">
+      <input type="password" placeholder="Password">
+      <button>Submit</button>
+      <button onclick="closeLogin()">Close</button>
+    </div>
+  </div>
+
+  <!-- Register Modal -->
+  <div id="registerModal" class="modal">
+    <div class="modal-content">
+      <h2>Register</h2>
+      <input type="text" placeholder="Name">
+      <input type="email" placeholder="Email">
+      <input type="password" placeholder="Password">
+      <button>Sign Up</button>
+      <button onclick="closeRegister()">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
