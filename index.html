@@ -3,86 +3,168 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kimu Business</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Kimu's Funky Biz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #f7f7f7;
+      color: #333;
+    }
+    h1.title {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #222;
+      color: #fff;
+      margin: 0;
+    }
+    .packages {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 2rem 0;
+    }
+    .card {
+      background: #fff;
+      padding: 1.5rem;
+      margin: 1rem;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 400px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .card h2 {
+      margin-bottom: 0.5rem;
+    }
+    .card p {
+      margin-bottom: 1rem;
+    }
+    .card h3 {
+      margin-bottom: 1rem;
+    }
+    .pay-btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+    .green { background: #28a745; }
+    .gold { background: #ffd700; color: #222; }
+    .purple { background: #6f42c1; }
+    .pay-btn:hover { opacity: 0.8; }
+
+    /* Perks section */
+    #perks {
+      margin: 3rem 0;
+      text-align: center;
+    }
+    .packs {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .pack {
+      background: #fff;
+      padding: 1.5rem;
+      margin: 1rem;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 400px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .pack ul {
+      list-style: none;
+      padding: 0;
+    }
+    .pack ul li {
+      margin: 0.5rem 0;
+    }
+    .scroll-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background: #222;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+    .scroll-btn:hover {
+      background: #555;
+    }
+  </style>
 </head>
 <body>
-  <!-- Hero -->
-  <section class="hero funky-bg">
-    <h1>🚀 Welcome to Kimu Business 🚀</h1>
-    <p>Minimalist. Funky. Modern. Let’s build something cool.</p>
-    <div class="buttons">
-      <button onclick="openLogin()">Login</button>
-      <button onclick="openRegister()">Register</button>
-      <a href="mailto:gdam385@gmail.com"><button>Contact</button></a>
-    </div>
-  </section>
+  <h1 class="title">🔥 RASIM.CO 🔥</h1>
 
-  <!-- Pricing -->
-  <section class="pricing">
+  <!-- Scroll to perks button -->
+  <div style="text-align:center; margin: 1rem;">
+    <a href="#perks" class="scroll-btn">View Perks of Each Pack</a>
+  </div>
+
+  <!-- Payment packages -->
+  <section class="packages">
     <div class="card">
       <h2>Simple Website</h2>
-      <p>Basic HTML static site with minimal design.</p>
-      <span>₹50</span>
-      <form action="https://www.paypal.com/ncp/payment/KIMUU" method="post" target="_blank">
-        <input type="hidden" name="business" value="gdam385@gmail.com">
-        <input type="hidden" name="item_name" value="Simple Website">
-        <input type="hidden" name="amount" value="50">
-        <input type="hidden" name="currency_code" value="INR">
-        <button type="submit" class="pay-btn">Pay with PayPal</button>
-      </form>
+      <p>✨ A clean starter site</p>
+      <h3>₹50</h3>
+      <a href="https://paypal.me/RASIM109/0.50" target="_blank" class="pay-btn green">Pay with PayPal</a>
     </div>
 
     <div class="card">
       <h2>Pro Website</h2>
-      <p>Professional responsive site with animations & extras.</p>
-      <span>₹1,000</span>
-      <form action="https://www.paypal.com/ncp/payment/KIMUU" method="post" target="_blank">
-        <input type="hidden" name="business" value="gdam385@gmail.com">
-        <input type="hidden" name="item_name" value="Pro Website">
-        <input type="hidden" name="amount" value="1000">
-        <input type="hidden" name="currency_code" value="INR">
-        <button type="submit" class="pay-btn">Pay with PayPal</button>
-      </form>
+      <p>🚀 Professional design & features</p>
+      <h3>₹1000</h3>
+      <a href="https://paypal.me/RASIM109/10" target="_blank" class="pay-btn gold">Pay with PayPal</a>
     </div>
 
     <div class="card">
       <h2>Game Website</h2>
-      <p>Interactive game-based website with custom logic.</p>
-      <span>₹2,000</span>
-      <form action="https://www.paypal.com/ncp/payment/KIMUU" method="post" target="_blank">
-        <input type="hidden" name="business" value="gdam385@gmail.com">
-        <input type="hidden" name="item_name" value="Game Website">
-        <input type="hidden" name="amount" value="2000">
-        <input type="hidden" name="currency_code" value="INR">
-        <button type="submit" class="pay-btn">Pay with PayPal</button>
-      </form>
+      <p>🎮 Interactive & custom gaming site</p>
+      <h3>₹2000</h3>
+      <a href="https://paypal.me/RASIM109/30" target="_blank" class="pay-btn purple">Pay with PayPal</a>
     </div>
   </section>
 
-  <!-- Login Modal -->
-  <div id="loginModal" class="modal">
-    <div class="modal-content">
-      <h2>Login</h2>
-      <input type="email" placeholder="Email">
-      <input type="password" placeholder="Password">
-      <button>Submit</button>
-      <button onclick="closeLogin()">Close</button>
+  <!-- Perks section -->
+  <div id="perks">
+    <h2>Perks Overview</h2>
+    <div class="packs">
+      <div class="pack">
+        <h2>Simple Website Perks</h2>
+        <ul>
+          <li>Basic layout</li>
+          <li>1 page website</li>
+          <li>Community support</li>
+        </ul>
+      </div>
+
+      <div class="pack">
+        <h2>Pro Website Perks</h2>
+        <ul>
+          <li>Everything in Simple</li>
+          <li>Multiple pages</li>
+          <li>Professional design</li>
+          <li>Priority support</li>
+        </ul>
+      </div>
+
+      <div class="pack">
+        <h2>Game Website Perks</h2>
+        <ul>
+          <li>Everything in Pro</li>
+          <li>Interactive gaming features</li>
+          <li>Custom designs & layouts</li>
+          <li>1-on-1 support</li>
+        </ul>
+      </div>
     </div>
   </div>
 
-  <!-- Register Modal -->
-  <div id="registerModal" class="modal">
-    <div class="modal-content">
-      <h2>Register</h2>
-      <input type="text" placeholder="Name">
-      <input type="email" placeholder="Email">
-      <input type="password" placeholder="Password">
-      <button>Sign Up</button>
-      <button onclick="closeRegister()">Close</button>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
