@@ -10,7 +10,7 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #000000, #444444));
+      background: linear-gradient(135deg, #000000, #444444);
       color: white;
       text-align: center;
       overflow-x: hidden;
@@ -23,8 +23,8 @@
       animation: glow 2s infinite alternate;
     }
     @keyframes glow {
-      from { text-shadow: 0 0 15px #ff00cc; }
-      to   { text-shadow: 0 0 30px #00ffff; }
+      from { text-shadow: 0 0 15px #888888; }
+      to   { text-shadow: 0 0 30px #ffffff; }
     }
 
     /* Packages Section */
@@ -36,8 +36,8 @@
       padding: 40px;
     }
     .card {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(15px);
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid #555;
       border-radius: 20px;
       padding: 30px;
       width: 250px;
@@ -45,10 +45,10 @@
     }
     .card:hover {
       transform: translateY(-10px) scale(1.05);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 40px rgba(255, 255, 255, 0.2);
     }
     .card h2 { font-weight: 600; margin-bottom: 10px; }
-    .card p { font-size: 0.9em; margin-bottom: 15px; color: #ddd; }
+    .card p { font-size: 0.9em; margin-bottom: 15px; color: #ccc; }
     .card h3 { font-size: 1.5em; margin-bottom: 20px; color: #ffeb3b; }
 
     .pay-btn {
@@ -76,12 +76,12 @@
       gap: 20px;
     }
     .pack {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(15px);
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid #555;
       border-radius: 20px;
       padding: 20px;
       width: 300px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 40px rgba(255, 255, 255, 0.2);
     }
     .pack h2 { color: #ffeb3b; }
     .pack ul { list-style: none; padding: 0; }
@@ -92,13 +92,13 @@
       padding: 2rem;
       margin: 1.5rem auto;
       max-width: 700px;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(15px);
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid #555;
       border-radius: 20px;
       color: white;
     }
     .section h2 { font-size: 1.8rem; margin-bottom: 1rem; color: #ffeb3b; }
-    .section p { font-size: 1rem; color: #f0f0f0; }
+    .section p { font-size: 1rem; color: #ccc; }
     .btn {
       background: #0070f3;
       color: white;
@@ -212,4 +212,3 @@
 
 </body>
 </html>
-
