@@ -83,4 +83,54 @@ body {
 .section {
   padding: 2rem;
   margin: 1.5rem auto;
-  max-width: 700px
+  max-width: 700px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  color: white;
+}
+
+.section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #ffeb3b;
+}
+
+.section p {
+  font-size: 1rem;
+  color: #f0f0f0;
+}
+
+.section-img {
+  max-width: 150px;
+  display: block;
+  margin: 0 auto 1rem;
+  border-radius: 12px;
+}
+
+/* Buttons in Sections */
+.btn {
+  background: #0070f3;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background: #0059c1;
+}
+
+/* Contact Section */
+#contact a {
+  color: #ffeb3b;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+#contact a:hover {
+  text-decoration: underline;
+}
