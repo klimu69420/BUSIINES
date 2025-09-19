@@ -1,76 +1,111 @@
-body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  background: #121212; /* blackish background */
-  color: #e0e0e0;      /* light gray text */
-}
+<style>
+  /* Global Styles */
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #111; /* black background */
+    color: #eee; /* light gray text */
+    text-align: center;
+    overflow-x: hidden;
+  }
 
-h1.title {
-  text-align: center;
-  padding: 2rem 1rem;
-  background: #1f1f1f; /* dark gray header */
-  color: #fff;         /* white text */
-  margin: 0;
-}
+  /* Title */
+  .title {
+    font-size: 3em;
+    margin: 40px 0;
+    color: #fff;
+    text-shadow: 0 0 15px #666;
+  }
 
-.packages {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 2rem 0;
-}
+  /* Packages Section */
+  .packages {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 40px;
+  }
+  .card {
+    background: #1c1c1c; /* dark gray cards */
+    border-radius: 20px;
+    padding: 30px;
+    width: 250px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+  }
+  .card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+  }
+  .card h2 { font-weight: 600; margin-bottom: 10px; color: #fff; }
+  .card p { font-size: 0.9em; margin-bottom: 15px; color: #bbb; }
+  .card h3 { font-size: 1.5em; margin-bottom: 20px; color: #ffeb3b; }
 
-.card, .pack {
-  background: #1c1c1c;   /* dark gray for cards */
-  color: #e0e0e0;        /* light gray text */
-  padding: 1.5rem;
-  margin: 1rem;
-  border-radius: 10px;
-  width: 80%;
-  max-width: 400px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.6);
-  text-align: center;
-}
+  .pay-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+  }
+  .pay-btn:hover { transform: scale(1.1); }
 
-.card h2, .pack h2 {
-  margin-bottom: 0.5rem;
-  color: #fff; /* titles pop in white */
-}
+  /* PayPal Button Colors */
+  .green { background: #00c853; }
+  .gold { background: #ffd700; color: #222; }
+  .purple { background: #8e24aa; }
 
-.card p, .pack ul li {
-  margin-bottom: 1rem;
-  color: #ccc; /* lighter gray text */
-}
+  /* Perks Section */
+  #perks { margin: 3rem 0; text-align: center; }
+  .packs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  .pack {
+    background: #1c1c1c;
+    border-radius: 20px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+  }
+  .pack h2 { color: #ffeb3b; }
+  .pack ul { list-style: none; padding: 0; }
+  .pack ul li { margin: 0.5rem 0; color: #ccc; }
 
-.pay-btn {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: 0.3s;
-}
+  /* Extra Sections */
+  .section {
+    padding: 2rem;
+    margin: 1.5rem auto;
+    max-width: 700px;
+    background: #1a1a1a;
+    border-radius: 20px;
+    color: #eee;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+  }
+  .section h2 { font-size: 1.8rem; margin-bottom: 1rem; color: #ffeb3b; }
+  .section p { font-size: 1rem; color: #ddd; }
 
-.green { background: #28a745; }
-.gold { background: #ffd700; color: #222; }
-.purple { background: #6f42c1; }
-.pay-btn:hover { opacity: 0.85; }
+  .btn {
+    background: #0070f3;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+  }
+  .btn:hover { background: #0059c1; }
 
-#perks {
-  margin: 3rem 0;
-  text-align: center;
-}
-
-.scroll-btn {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  background: #333;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: 0.3s;
-}
-.scroll-btn:hover {
-  background: #555;
-}
+  /* Contact */
+  #contact a {
+    color: #4da6ff;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  #contact a:hover { text-decoration: underline; }
+</style>
