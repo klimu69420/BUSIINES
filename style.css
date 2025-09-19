@@ -93,4 +93,14 @@ body {
   border-radius: 8px;
   text-decoration: none;
 }
+#contact a {
+  color: #0070f3;
+  font-weight: 600;
+  text-decoration: none;
+}
+#contact a:hover {
+  text-decoration: underline;
+}
+
+
 
