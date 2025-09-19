@@ -6,106 +6,122 @@
   <title>Kimu's Funky Biz</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    /* Global Styles */
     body {
+      margin: 0;
       font-family: 'Poppins', sans-serif;
-      margin: 0;
-      background: #f7f7f7;
-      color: #333;
-    }
-    h1.title {
+      background: linear-gradient(135deg, #ff00cc, #3333ff);
+      color: white;
       text-align: center;
-      padding: 2rem 1rem;
-      background: #222;
-      color: #fff;
-      margin: 0;
+      overflow-x: hidden;
     }
+
+    /* Title Glow */
+    .title {
+      font-size: 3em;
+      margin: 40px 0;
+      animation: glow 2s infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 15px #ff00cc; }
+      to   { text-shadow: 0 0 30px #00ffff; }
+    }
+
+    /* Packages Section */
     .packages {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 2rem 0;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 40px;
     }
     .card {
-      background: #fff;
-      padding: 1.5rem;
-      margin: 1rem;
-      border-radius: 10px;
-      width: 80%;
-      max-width: 400px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 30px;
+      width: 250px;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-    .card h2 {
-      margin-bottom: 0.5rem;
+    .card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     }
-    .card p {
-      margin-bottom: 1rem;
-    }
-    .card h3 {
-      margin-bottom: 1rem;
-    }
+    .card h2 { font-weight: 600; margin-bottom: 10px; }
+    .card p { font-size: 0.9em; margin-bottom: 15px; color: #ddd; }
+    .card h3 { font-size: 1.5em; margin-bottom: 20px; color: #ffeb3b; }
+
     .pay-btn {
       display: inline-block;
-      padding: 0.5rem 1rem;
-      color: #fff;
+      padding: 10px 20px;
+      border-radius: 10px;
       text-decoration: none;
-      border-radius: 5px;
-      transition: 0.3s;
+      color: white;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.2s;
     }
-    .green { background: #28a745; }
-    .gold { background: #ffd700; color: #222; }
-    .purple { background: #6f42c1; }
-    .pay-btn:hover { opacity: 0.8; }
+    .pay-btn:hover { transform: scale(1.1); }
 
-    /* Perks section */
-    #perks {
-      margin: 3rem 0;
-      text-align: center;
-    }
+    /* PayPal Button Colors */
+    .green { background: #00c853; }
+    .gold { background: #ffb300; }
+    .purple { background: #8e24aa; }
+
+    /* Perks Section */
+    #perks { margin: 3rem 0; text-align: center; }
     .packs {
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
     }
     .pack {
-      background: #fff;
-      padding: 1.5rem;
-      margin: 1rem;
-      border-radius: 10px;
-      width: 80%;
-      max-width: 400px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 20px;
+      width: 300px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     }
-    .pack ul {
-      list-style: none;
-      padding: 0;
+    .pack h2 { color: #ffeb3b; }
+    .pack ul { list-style: none; padding: 0; }
+    .pack ul li { margin: 0.5rem 0; }
+
+    /* Extra Sections */
+    .section {
+      padding: 2rem;
+      margin: 1.5rem auto;
+      max-width: 700px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      color: white;
     }
-    .pack ul li {
-      margin: 0.5rem 0;
-    }
-    .scroll-btn {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
-      background: #222;
-      color: #fff;
+    .section h2 { font-size: 1.8rem; margin-bottom: 1rem; color: #ffeb3b; }
+    .section p { font-size: 1rem; color: #f0f0f0; }
+    .btn {
+      background: #0070f3;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
       text-decoration: none;
-      border-radius: 5px;
-      transition: 0.3s;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 10px;
     }
-    .scroll-btn:hover {
-      background: #555;
+    .btn:hover { background: #0059c1; }
+
+    /* Contact */
+    #contact a {
+      color: #ffeb3b;
+      font-weight: 600;
+      text-decoration: none;
     }
+    #contact a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
   <h1 class="title">RASIM.CO</h1>
-
-  <!-- Scroll to perks button -->
-  <div style="text-align:center; margin: 1rem;">
-    <a href="#perks" class="scroll-btn">View Perks of Each Pack</a>
-  </div>
 
   <!-- Payment packages -->
   <section class="packages">
@@ -115,14 +131,12 @@
       <h3>₹50</h3>
       <a href="https://paypal.me/RASIM109/0.50" target="_blank" class="pay-btn green">Pay with PayPal</a>
     </div>
-
     <div class="card">
       <h2>Pro Website</h2>
       <p>🚀 Professional design & features</p>
       <h3>₹1000</h3>
       <a href="https://paypal.me/RASIM109/10" target="_blank" class="pay-btn gold">Pay with PayPal</a>
     </div>
-
     <div class="card">
       <h2>Game Website</h2>
       <p>🎮 Interactive & custom gaming site</p>
@@ -143,7 +157,6 @@
           <li>Community support</li>
         </ul>
       </div>
-
       <div class="pack">
         <h2>Pro Website Perks</h2>
         <ul>
@@ -153,7 +166,6 @@
           <li>Priority support</li>
         </ul>
       </div>
-
       <div class="pack">
         <h2>Game Website Perks</h2>
         <ul>
@@ -161,49 +173,42 @@
           <li>Interactive gaming features</li>
           <li>Custom designs & layouts</li>
           <li>1-on-1 support</li>
-          <!-- About Me -->
-<section id="about" class="section">
-  <h2>About Me</h2>
-  <p>Yo! I’m Kimu, the creator of this site. Here’s where I keep it real about what I do and what I offer.</p>
-</section>
-
-<!-- Donate -->
-<section id="donate" class="section">
-  <h2>DONATE</h2>
-  <a href="https://www.paypal.com/paypalme/RASIM109/10" class="btn">Donate</a>
-</section>
-
-<!-- Comments -->
-<section id="comments" class="section">
-  <h2>Comments</h2>
-  <!-- Simple embed (Disqus example) -->
-  <div id="disqus_thread"></div>
-  <script>
-    (function() { // DISQUS SCRIPT
-      var d = document, s = d.createElement('script');
-      s.src = 'https://YOUR-SITE-NAME.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
-</section>
-          <!-- Contact -->
-<section id="contact" class="section">
-  <h2>Contact Me</h2>
-  <p>Hit me up at: <a href="mailto:yourgmail@gmail.com">gdam385@gmail.com</a></p>
-</section>
-
-
         </ul>
       </div>
     </div>
   </div>
 
+  <!-- About Me -->
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p>Yo! I’m Kimu, the creator of this site. Here’s where I keep it real about what I do and what I offer.</p>
+  </section>
+
+  <!-- Donate -->
+  <section id="donate" class="section">
+    <h2>DONATE</h2>
+    <a href="https://www.paypal.com/paypalme/RASIM109/10" class="btn">Donate</a>
+  </section>
+
+  <!-- Comments -->
+  <section id="comments" class="section">
+    <h2>Comments</h2>
+    <div id="disqus_thread"></div>
+    <script>
+      (function() { 
+        var d = document, s = d.createElement('script');
+        s.src = 'https://YOUR-SITE-NAME.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <h2>Contact Me</h2>
+    <p>Hit me up at: <a href="mailto:gdam385@gmail.com">gdam385@gmail.com</a></p>
+  </section>
+
 </body>
 </html>
-
-
-
-
-
-
