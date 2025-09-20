@@ -3,154 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kimu's Funky Biz</title>
+  <title>RASIM.CO</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* Global Styles */
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #000000, #444444);
-      color: white;
-      text-align: center;
-      overflow-x: hidden;
-    }
+    body { font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); color: white; scroll-behavior: smooth; }
+    h1.title { font-size: 4em; text-align: center; margin: 60px 0 30px; animation: glow 2s infinite alternate; }
+    @keyframes glow { from { text-shadow: 0 0 15px #888; } to { text-shadow: 0 0 40px #ffeb3b; } }
+    nav { position: sticky; top: 0; background: rgba(0,0,0,0.7); display: flex; justify-content: center; padding: 1rem 0; gap: 2rem; z-index: 10; }
+    nav a { color: white; font-weight: 600; transition: 0.3s; }
+    nav a:hover { color: #ffeb3b; }
 
-    /* Title Glow */
-    .title {
-      font-size: 3em;
-      margin: 40px 0;
-      animation: glow 2s infinite alternate;
-    }
-    @keyframes glow {
-      from { text-shadow: 0 0 15px #888888; }
-      to   { text-shadow: 0 0 30px #ffffff; }
-    }
-
-    /* Packages Section */
-    .packages {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 30px;
-      padding: 40px;
-    }
-    .card {
-      background: rgba(0, 0, 0, 0.7);
-      border: 1px solid #555;
-      border-radius: 20px;
-      padding: 30px;
-      width: 250px;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-10px) scale(1.05);
-      box-shadow: 0 10px 40px rgba(255, 255, 255, 0.2);
-    }
-    .card h2 { font-weight: 600; margin-bottom: 10px; }
-    .card p { font-size: 0.9em; margin-bottom: 15px; color: #ccc; }
-    .card h3 { font-size: 1.5em; margin-bottom: 20px; color: #ffeb3b; }
-
-    .pay-btn {
-      display: inline-block;
-      padding: 10px 20px;
-      border-radius: 10px;
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-      transition: background 0.3s, transform 0.2s;
-    }
+    /* Packages */
+    .packages { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 50px 20px; }
+    .card { background: rgba(0,0,0,0.7); border-radius: 20px; padding: 30px; width: 280px; text-align: center; transition: transform 0.3s, box-shadow 0.3s; }
+    .card:hover { transform: translateY(-10px) scale(1.05); box-shadow: 0 10px 40px rgba(255,255,255,0.2); }
+    .card h2 { font-weight: 600; font-size: 1.8em; margin-bottom: 10px; }
+    .card p { color: #ccc; margin-bottom: 15px; }
+    .card h3 { color: #ffeb3b; font-size: 1.5em; margin-bottom: 20px; }
+    .pay-btn { display: inline-block; padding: 12px 25px; border-radius: 10px; font-weight: bold; transition: 0.3s; text-decoration: none; color: white; }
     .pay-btn:hover { transform: scale(1.1); }
 
-    /* PayPal Button Colors */
-    .green { background: #00c853; }
-    .gold { background: #ffb300; }
-    .purple { background: #8e24aa; }
-
-    /* Perks Section */
-    #perks { margin: 3rem 0; text-align: center; }
-    .packs {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .pack {
-      background: rgba(0, 0, 0, 0.7);
-      border: 1px solid #555;
-      border-radius: 20px;
-      padding: 20px;
-      width: 300px;
-      box-shadow: 0 10px 40px rgba(255, 255, 255, 0.2);
-    }
-    .pack h2 { color: #ffeb3b; }
+    /* Perks */
+    #perks { margin: 4rem 0; text-align: center; }
+    .packs { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; }
+    .pack { background: rgba(0,0,0,0.7); border-radius: 20px; padding: 25px; width: 320px; box-shadow: 0 10px 40px rgba(255,255,255,0.2); transition: transform 0.3s; }
+    .pack:hover { transform: translateY(-10px) scale(1.03); }
+    .pack h2 { color: #ffeb3b; margin-bottom: 1rem; }
     .pack ul { list-style: none; padding: 0; }
-    .pack ul li { margin: 0.5rem 0; }
+    .pack ul li { margin: 0.6rem 0; font-weight: 500; }
 
-    /* Extra Sections */
-    .section {
-      padding: 2rem;
-      margin: 1.5rem auto;
-      max-width: 700px;
-      background: rgba(0, 0, 0, 0.7);
-      border: 1px solid #555;
-      border-radius: 20px;
-      color: white;
-    }
-    .section h2 { font-size: 1.8rem; margin-bottom: 1rem; color: #ffeb3b; }
-    .section p { font-size: 1rem; color: #ccc; }
-    .btn {
-      background: #0070f3;
-      color: white;
-      padding: 10px 18px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      display: inline-block;
-      margin-top: 10px;
-    }
+    .section { padding: 3rem 2rem; margin: 2rem auto; max-width: 750px; background: rgba(0,0,0,0.7); border-radius: 20px; color: white; }
+    .section h2 { font-size: 2rem; color: #ffeb3b; margin-bottom: 1rem; }
+    .section p { color: #ccc; font-size: 1rem; }
+    .btn { background: #0070f3; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 10px; transition: 0.3s; }
     .btn:hover { background: #0059c1; }
 
-    /* Contact */
-    #contact a {
-      color: #ffeb3b;
-      font-weight: 600;
-      text-decoration: none;
-    }
-    #contact a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-  <h1 class="title">RASIM.CO</h1>
 
-  <!-- Payment packages -->
-  <section class="packages">
+  <!-- Sticky Nav -->
+  <nav>
+    <a href="#packages">Packages</a>
+    <a href="#perks">Perks</a>
+    <a href="#about">About</a>
+    <a href="#donate">Donate</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Hero -->
+  <h1 class="title">RASIM.CO</h1>
+  <p style="text-align:center; margin-bottom: 40px;">Interactive, modern, and eye-catching websites built by Kimu</p>
+
+  <!-- Packages -->
+  <section id="packages" class="packages">
     <div class="card">
       <h2>Simple Website</h2>
-      <p>✨ A clean starter site</p>
+      <p>✨ Clean starter site</p>
       <h3>₹50</h3>
-      <a href="https://paypal.me/RASIM109/0.50" target="_blank" class="pay-btn white">Pay with PayPal</a>
+      <a href="https://paypal.me/RASIM109/0.50" target="_blank" class="pay-btn" style="background:#00c853;">Pay with PayPal</a>
     </div>
     <div class="card">
       <h2>Pro Website</h2>
       <p>🚀 Professional design & features</p>
       <h3>₹1000</h3>
-      <a href="https://paypal.me/RASIM109/10" target="_blank" class="pay-btn beige">Pay with PayPal</a>
+      <a href="https://paypal.me/RASIM109/10" target="_blank" class="pay-btn" style="background:#ffb300;">Pay with PayPal</a>
     </div>
     <div class="card">
       <h2>Game Website</h2>
-      <p>🎮 Interactive & custom gaming site</p>
+      <p>🎮 Interactive gaming site</p>
       <h3>₹2000</h3>
-      <a href="https://paypal.me/RASIM109/30" target="_blank" class="pay-btn white">Pay with PayPal</a>
+      <a href="https://paypal.me/RASIM109/30" target="_blank" class="pay-btn" style="background:#8e24aa;">Pay with PayPal</a>
     </div>
   </section>
 
-  <!-- Perks section -->
+  <!-- Perks -->
   <div id="perks">
-    <h2>Perks Overview</h2>
+    <h2>Perks & Features</h2>
     <div class="packs">
       <div class="pack">
-        <h2>Simple Website Perks</h2>
+        <h2>Simple Website</h2>
         <ul>
           <li>Basic layout</li>
           <li>1 page website</li>
@@ -158,7 +91,7 @@
         </ul>
       </div>
       <div class="pack">
-        <h2>Pro Website Perks</h2>
+        <h2>Pro Website</h2>
         <ul>
           <li>Everything in Simple</li>
           <li>Multiple pages</li>
@@ -167,41 +100,27 @@
         </ul>
       </div>
       <div class="pack">
-        <h2>Game Website Perks</h2>
+        <h2>Game Website</h2>
         <ul>
           <li>Everything in Pro</li>
-          <li>Interactive gaming features</li>
-          <li>Custom designs & layouts</li>
+          <li>Interactive features</li>
+          <li>Custom layouts</li>
           <li>1-on-1 support</li>
         </ul>
       </div>
     </div>
   </div>
 
-  <!-- About Me -->
+  <!-- About -->
   <section id="about" class="section">
     <h2>About Me</h2>
-    <p>Yo! I’m Kimu, the creator of this site. Here’s where I keep it real about what I do and what I offer.</p>
+    <p>Yo! I’m Kimu, the creator of this site. I build interactive websites with clean, modern designs and cool animations. Your project will look professional and feel alive!</p>
   </section>
 
   <!-- Donate -->
   <section id="donate" class="section">
-    <h2>DONATE</h2>
+    <h2>Donate</h2>
     <a href="https://www.paypal.com/paypalme/RASIM109/10" class="btn">Donate</a>
-  </section>
-
-  <!-- Comments -->
-  <section id="comments" class="section">
-    <h2>Comments</h2>
-    <div id="disqus_thread"></div>
-    <script>
-      (function() { 
-        var d = document, s = d.createElement('script');
-        s.src = 'https://YOUR-SITE-NAME.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-      })();
-    </script>
   </section>
 
   <!-- Contact -->
@@ -212,5 +131,3 @@
 
 </body>
 </html>
-
-
