@@ -7,117 +7,207 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-    .hero-bg { background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: white;
+      scroll-behavior: smooth;
+    }
+
+    /* Hero Title Glow + Bounce */
+    h1.title {
+      font-size: 4em;
+      text-align: center;
+      margin: 60px 0 30px;
+      animation: glow 2s infinite alternate, bounce 3s infinite;
+    }
+    @keyframes glow { 
+      from { text-shadow: 0 0 15px #888; } 
+      to { text-shadow: 0 0 40px #ffeb3b; } 
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Sticky Nav */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      justify-content: center;
+      padding: 1rem 0;
+      gap: 2rem;
+      z-index: 10;
+    }
+    nav a { 
+      color: white;
+      font-weight: 600;
+      transition: all 0.3s;
+      position: relative;
+    }
+    nav a:hover { color: #ffeb3b; }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: #ffeb3b;
+      left: 0;
+      bottom: -4px;
+      transition: width 0.3s;
+    }
+    nav a:hover::after { width: 100%; }
+
+    /* Packages */
+    .packages { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 50px 20px; }
+    .card { 
+      background: rgba(0,0,0,0.7);
+      border-radius: 20px;
+      padding: 30px;
+      width: 280px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s forwards;
+    }
+    .card:nth-child(1) { animation-delay: 0.2s; }
+    .card:nth-child(2) { animation-delay: 0.4s; }
+    .card:nth-child(3) { animation-delay: 0.6s; }
+    .card:hover { transform: translateY(-10px) scale(1.05); box-shadow: 0 10px 40px rgba(255,255,255,0.2); }
+    .card h2 { font-weight: 600; font-size: 1.8em; margin-bottom: 10px; }
+    .card p { color: #ccc; margin-bottom: 15px; }
+    .card h3 { color: #ffeb3b; font-size: 1.5em; margin-bottom: 20px; }
+    .pay-btn { display: inline-block; padding: 12px 25px; border-radius: 10px; font-weight: bold; transition: 0.3s; text-decoration: none; color: white; }
+    .pay-btn:hover { transform: scale(1.1); }
+
+    @keyframes fadeUp { 
+      to { opacity: 1; transform: translateY(0); } 
+    }
+
+    /* Perks */
+    #perks { margin: 4rem 0; text-align: center; }
+    .packs { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; }
+    .pack { 
+      background: rgba(0,0,0,0.7);
+      border-radius: 20px;
+      padding: 25px;
+      width: 320px;
+      box-shadow: 0 10px 40px rgba(255,255,255,0.2);
+      transition: transform 0.3s, opacity 0.6s;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s forwards;
+    }
+    .pack:nth-child(1) { animation-delay: 0.2s; }
+    .pack:nth-child(2) { animation-delay: 0.4s; }
+    .pack:nth-child(3) { animation-delay: 0.6s; }
+    .pack:hover { transform: translateY(-10px) scale(1.03); }
+    .pack h2 { color: #ffeb3b; margin-bottom: 1rem; }
+    .pack ul { list-style: none; padding: 0; }
+    .pack ul li { margin: 0.6rem 0; font-weight: 500; }
+
+    /* Sections */
+    .section { padding: 3rem 2rem; margin: 2rem auto; max-width: 750px; background: rgba(0,0,0,0.7); border-radius: 20px; color: white; transition: transform 0.3s, opacity 0.6s; opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s forwards; }
+    .section:nth-child(1) { animation-delay: 0.2s; }
+    .section:nth-child(2) { animation-delay: 0.4s; }
+    .section:nth-child(3) { animation-delay: 0.6s; }
+    .section h2 { font-size: 2rem; color: #ffeb3b; margin-bottom: 1rem; }
+    .section p { color: #ccc; font-size: 1rem; }
+    .btn { background: #0070f3; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 10px; transition: 0.3s; }
+    .btn:hover { background: #0059c1; transform: scale(1.05); }
+
   </style>
 </head>
-<body class="bg-gray-100">
+<body>
 
-  <!-- Hero Section -->
-  <section class="hero-bg text-white h-screen flex flex-col justify-center items-center text-center">
-    <h1 class="text-5xl md:text-7xl font-bold mb-4 animate-bounce">Welcome to RASIM.CO</h1>
-    <p class="text-xl md:text-2xl mb-6">Interactive, modern, and eye-catching websites built by Kimu</p>
-    <a href="#packages" class="px-6 py-3 bg-white text-blue-800 rounded-full font-semibold hover:bg-gray-200 transition">See Packages</a>
-  </section>
+  <!-- Sticky Nav -->
+  <nav>
+    <a href="#packages">Packages</a>
+    <a href="#perks">Perks</a>
+    <a href="#about">About</a>
+    <a href="#donate">Donate</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-  <!-- Packages Section -->
-  <section id="packages" class="py-20 px-6 md:px-20 bg-gray-50">
-    <h2 class="text-4xl font-bold mb-10 text-center">Website Packages</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="bg-white rounded-lg shadow-lg p-6 hover:scale-105 transform transition">
-        <h3 class="font-bold text-xl mb-2">Simple Website</h3>
-        <p class="text-gray-600 mb-4">✨ Clean starter site</p>
-        <p class="text-yellow-500 font-bold text-lg mb-4">₹50</p>
-        <a href="https://paypal.me/RASIM109/0.50" target="_blank" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition">Pay with PayPal</a>
-      </div>
-      <div class="bg-white rounded-lg shadow-lg p-6 hover:scale-105 transform transition">
-        <h3 class="font-bold text-xl mb-2">Pro Website</h3>
-        <p class="text-gray-600 mb-4">🚀 Professional design & features</p>
-        <p class="text-yellow-500 font-bold text-lg mb-4">₹1000</p>
-        <a href="https://paypal.me/RASIM109/10" target="_blank" class="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition">Pay with PayPal</a>
-      </div>
-      <div class="bg-white rounded-lg shadow-lg p-6 hover:scale-105 transform transition">
-        <h3 class="font-bold text-xl mb-2">Game Website</h3>
-        <p class="text-gray-600 mb-4">🎮 Interactive gaming site</p>
-        <p class="text-yellow-500 font-bold text-lg mb-4">₹2000</p>
-        <a href="https://paypal.me/RASIM109/30" target="_blank" class="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600 transition">Pay with PayPal</a>
-      </div>
+  <!-- Hero -->
+  <h1 class="title">RASIM.CO</h1>
+  <p style="text-align:center; margin-bottom: 40px;">Interactive, modern, and eye-catching websites built by Kimu</p>
+
+  <!-- Packages -->
+  <section id="packages" class="packages">
+    <div class="card">
+      <h2>Simple Website</h2>
+      <p>✨ Clean starter site</p>
+      <h3>₹50</h3>
+      <a href="https://paypal.me/RASIM109/0.50" target="_blank" class="pay-btn" style="background:#00c853;">Pay with PayPal</a>
+    </div>
+    <div class="card">
+      <h2>Pro Website</h2>
+      <p>🚀 Professional design & features</p>
+      <h3>₹1000</h3>
+      <a href="https://paypal.me/RASIM109/10" target="_blank" class="pay-btn" style="background:#ffb300;">Pay with PayPal</a>
+    </div>
+    <div class="card">
+      <h2>Game Website</h2>
+      <p>🎮 Interactive gaming site</p>
+      <h3>₹2000</h3>
+      <a href="https://paypal.me/RASIM109/30" target="_blank" class="pay-btn" style="background:#8e24aa;">Pay with PayPal</a>
     </div>
   </section>
 
-  <!-- Perks Section -->
-  <section id="perks" class="py-20 px-6 md:px-20 bg-white">
-    <h2 class="text-4xl font-bold mb-10 text-center">Perks & Features</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="bg-gray-50 rounded-lg shadow-lg p-6 hover:scale-105 transform transition">
-        <h3 class="font-bold text-xl mb-2">Responsive Design</h3>
-        <p class="text-gray-600 text-sm">Looks perfect on desktop, tablet, and mobile devices.</p>
+  <!-- Perks -->
+  <div id="perks">
+    <h2>Perks & Features</h2>
+    <div class="packs">
+      <div class="pack">
+        <h2>Simple Website</h2>
+        <ul>
+          <li>Basic layout</li>
+          <li>1 page website</li>
+          <li>Community support</li>
+        </ul>
       </div>
-      <div class="bg-gray-50 rounded-lg shadow-lg p-6 hover:scale-105 transform transition">
-        <h3 class="font-bold text-xl mb-2">Fast & Optimized</h3>
-        <p class="text-gray-600 text-sm">Clean code and optimized images for smooth performance.</p>
+      <div class="pack">
+        <h2>Pro Website</h2>
+        <ul>
+          <li>Everything in Simple</li>
+          <li>Multiple pages</li>
+          <li>Professional design</li>
+          <li>Priority support</li>
+        </ul>
       </div>
-      <div class="bg-gray-50 rounded-lg shadow-lg p-6 hover:scale-105 transform transition">
-        <h3 class="font-bold text-xl mb-2">Interactive Animations</h3>
-        <p class="text-gray-600 text-sm">Buttons, sliders, and hover effects to engage visitors.</p>
-      </div>
-      <div class="bg-gray-50 rounded-lg shadow-lg p-6 hover:scale-105 transform transition">
-        <h3 class="font-bold text-xl mb-2">Demo Payment Buttons</h3>
-        <p class="text-gray-600 text-sm">Frontend PayPal buttons to showcase payment functionality.</p>
-      </div>
-      <div class="bg-gray-50 rounded-lg shadow-lg p-6 hover:scale-105 transform transition">
-        <h3 class="font-bold text-xl mb-2">Newsletter Signup</h3>
-        <p class="text-gray-600 text-sm">Collect emails via a frontend signup form for updates and offers.</p>
-      </div>
-      <div class="bg-gray-50 rounded-lg shadow-lg p-6 hover:scale-105 transform transition">
-        <h3 class="font-bold text-xl mb-2">Social Media Links</h3>
-        <p class="text-gray-600 text-sm">Direct links to your social profiles with hover effects.</p>
+      <div class="pack">
+        <h2>Game Website</h2>
+        <ul>
+          <li>Everything in Pro</li>
+          <li>Interactive features</li>
+          <li>Custom layouts</li>
+          <li>1-on-1 support</li>
+        </ul>
       </div>
     </div>
+  </div>
+
+  <!-- About -->
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p>Yo! I’m Kimu, the creator of this site. I build interactive websites with clean, modern designs and cool animations. Your project will look professional and feel alive!</p>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="py-20 px-6 md:px-20 bg-gray-50">
-    <h2 class="text-4xl font-bold mb-6 text-center">About Me</h2>
-    <div class="md:flex md:items-center md:gap-10">
-      <img src="https://source.unsplash.com/400x300/?coding" alt="About Image" class="rounded-lg shadow-lg mb-6 md:mb-0">
-      <p class="text-gray-700 text-lg">
-        Yo! I’m Kimu, the creator of this site. I build interactive websites with clean, modern designs and cool animations. Your project will look professional and feel alive!
-      </p>
-    </div>
+  <!-- Donate -->
+  <section id="donate" class="section">
+    <h2>Donate</h2>
+    <a href="https://www.paypal.com/paypalme/RASIM109/10" class="btn">Donate</a>
   </section>
 
-  <!-- Donate Section -->
-  <section id="donate" class="py-20 px-6 md:px-20 bg-gray-50 text-center">
-    <h2 class="text-4xl font-bold mb-6">Donate</h2>
-    <a href="https://www.paypal.com/paypalme/RASIM109/10" class="px-6 py-3 bg-blue-800 text-white rounded-full font-semibold hover:bg-blue-700 transition">Donate</a>
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <h2>Contact Me</h2>
+    <p>Hit me up at: <a href="mailto:gdam385@gmail.com">gdam385@gmail.com</a></p>
   </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-20 px-6 md:px-20 bg-gray-50">
-    <h2 class="text-4xl font-bold mb-10 text-center">Contact Me</h2>
-    <form class="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-      <div class="mb-4">
-        <label class="block mb-2 font-semibold">Name</label>
-        <input type="text" class="w-full p-3 border rounded" placeholder="Your Name">
-      </div>
-      <div class="mb-4">
-        <label class="block mb-2 font-semibold">Email</label>
-        <input type="email" class="w-full p-3 border rounded" placeholder="Your Email">
-      </div>
-      <div class="mb-4">
-        <label class="block mb-2 font-semibold">Message</label>
-        <textarea class="w-full p-3 border rounded" rows="5" placeholder="Your Message"></textarea>
-      </div>
-      <button type="submit" class="w-full py-3 bg-blue-800 text-white font-semibold rounded hover:bg-blue-700 transition">Send Message</button>
-    </form>
-  </section>
-
-  <!-- Footer -->
-  <footer class="py-6 bg-gray-800 text-white text-center">
-    &copy; 2025 RASIM.CO. All rights reserved.
-  </footer>
 
 </body>
 </html>
-
